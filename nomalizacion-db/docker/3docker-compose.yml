@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  db_hospital:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: postgres_hospital_container
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: hospital_db
+    ports:
+      - "5433:5432"  # Mapeo externo para tu script de Python
+      - "8080:80"    # Mapeo de pgAdmin compartiendo el Pod de red
+    volumes:
+      # CAMBIO CLAVE: Nombre de volumen nuevo para forzar inicialización limpia
+      - hospital_db_puro_vol:/var/lib/postgresql/data
+      - ../sql/ddl/dataset1_schema.sql:/docker-entrypoint-initdb.d/dataset1_schema.sql:Z
+
+  pgadmin_hospital:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin_hospital_container
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: uri@practica.com
+      PGADMIN_DEFAULT_PASSWORD: postgres
+    network_mode: "container:postgres_hospital_container"
+    volumes:
+      - pgadmin_storage_data:/var/lib/pgadmin
+    depends_on:
+      - db_hospital
+
+volumes:
+  hospital_db_puro_vol:  # Forzamos este nuevo espacio limpio
+  pgadmin_storage_data:
