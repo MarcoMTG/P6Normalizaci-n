@@ -1,0 +1,13 @@
+nombre,apellido,cedula_profesional,id_especialidad,telefono,email
+Médico,Hosp_118,CED-118,1,555-123-4567,med_118@hospital.com
+Médico,Hosp_81,CED-81,2,555-123-4567,med_81@hospital.com
+Médico,Hosp_33,CED-33,5,555-123-4567,med_33@hospital.com
+Médico,Hosp_83,CED-83,6,555-123-4567,med_83@hospital.com
+Médico,Hosp_77,CED-77,2,555-123-4567,med_77@hospital.com
+Médico,Hosp_149,CED-149,4,555-123-4567,med_149@hospital.com
+Médico,Hosp_31,CED-31,6,555-123-4567,med_31@hospital.com
+Médico,Hosp_151,CED-151,2,555-123-4567,med_151@hospital.com
+Médico,Hosp_69,CED-69,2,555-123-4567,med_69@hospital.com
+Médico,Hosp_46,CED-46,4,555-123-4567,med_46@hospital.com
+Médico,Hosp_63,CED-63,4,555-123-4567,med_63@hospital.com
+Médico,Hosp_113,CED-113,2,555-123-4567,med_113@hospital.com
