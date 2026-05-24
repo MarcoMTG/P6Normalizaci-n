@@ -1,4 +1,4 @@
-
+practica 6
 ---
 
 ## ⚙️ Requisitos previos
