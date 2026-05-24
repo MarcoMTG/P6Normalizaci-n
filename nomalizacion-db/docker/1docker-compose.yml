@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  db_netflix:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: postgres_netflix_container
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: netflix_db
+    ports:
+      - "5435:5432"      # Puerto externo para conexiones
+      - "8082:80"        # Para pgAdmin (comparte red)
+    volumes:
+      - netflix_db_vol:/var/lib/postgresql/data
+      - ../sql/ddl/dataset1_schema.sql:/docker-entrypoint-initdb.d/dataset1_schema.sql:Z
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d netflix_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+  pgadmin_netflix:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin_netflix_container
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@netflix.local
+      PGADMIN_DEFAULT_PASSWORD: admin
+    network_mode: "container:postgres_netflix_container"
+    volumes:
+      - pgadmin_netflix_vol:/var/lib/pgadmin
+    depends_on:
+      - db_netflix
+
+volumes:
+  netflix_db_vol:
+  pgadmin_netflix_vol:
