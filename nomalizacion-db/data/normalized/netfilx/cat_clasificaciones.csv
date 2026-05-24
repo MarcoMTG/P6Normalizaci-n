@@ -1,0 +1,18 @@
+id_clasificacion,codigo,descripcion
+1,PG-13,Parents Cautioned
+2,TV-MA,Mature Audience
+3,PG,Parental Guidance
+4,TV-14,Parents Strongly Cautioned
+5,TV-PG,Parental Guidance
+6,TV-Y,All Children
+7,TV-Y7,Older Children
+8,R,Restricted
+9,TV-G,General Audience
+10,G,General Audiences
+11,NC-17,Adults Only
+12,74 min,Sin descripción
+13,84 min,Sin descripción
+14,66 min,Sin descripción
+15,NR,Not Rated
+16,TV-Y7-FV,Sin descripción
+17,UR,Unrated
