@@ -1,4 +1,4 @@
-titulo="# Práctica 6 NORMALIZACIÓN"
+# Práctica 6 NORMALIZACIÓN
 ---
 
 ## ⚙️ Requisitos previos
